@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class RotationController : MonoBehaviour
 {
-    private Camera mainCamera;
+    [SerializeField] private float _rotationVelocity;
+
+    private Camera _mainCamera;
 
     private void Start()
     {
-        mainCamera = Camera.main;
+        _mainCamera = Camera.main;
     }
 
     private void Update()
     {
-        var mouseScreenPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        //Debug.Log(mouseScreenPosition);
-        //var direction = new Vector3(mouseScreenPosition.x, transform.position.y, mouseScreenPosition.z) - transform.position;
-        //direction.Normalize();
-        //transform.LookAt(direction);
+        var mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        transform.LookAt(new Vector3(mouseScreenPosition.x, transform.position.y, mouseScreenPosition.z));
+        var direction = new Vector3(mousePosition.x - transform.position.x, transform.position.y, mousePosition.z - transform.position.z);
+
+        var wantedDirection = Quaternion.LookRotation(direction, Vector3.up);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, wantedDirection, _rotationVelocity * Time.deltaTime);
     }
 }
