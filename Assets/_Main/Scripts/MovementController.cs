@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    [SerializeField] private float _movementVelocity;
+    [SerializeField] private float _movementVelocity = 10.0f;
 
     private Rigidbody _rigidbody;
 
@@ -21,9 +21,10 @@ public class MovementController : MonoBehaviour
     private void InputCheck()
     {
         var x = Input.GetAxisRaw("Horizontal");
-        var y = Input.GetAxisRaw("Vertical");
+        var y = 0;
+        var z = Input.GetAxisRaw("Vertical");
 
-        var move = new Vector3(x, 0, y);
+        var move = new Vector3(x, y, z);
 
         move.Normalize();
 
@@ -34,6 +35,6 @@ public class MovementController : MonoBehaviour
     {
         var move = transform.position + (direction * _movementVelocity);
 
-        _rigidbody.MovePosition(move);
+        _rigidbody.velocity = (direction * _movementVelocity);
     }
 }
