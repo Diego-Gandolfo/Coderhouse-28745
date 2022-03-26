@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class ActorMovement : MonoBehaviour
+public abstract class ActorMovement : MonoBehaviour
 {
-    protected IActorStats _actorStats;
-    protected IActorController _actorController;
+    private IActorStats _actorStats;
+    private IActorController _actorController;
 
     protected void Movement(Vector3 direction)
     {

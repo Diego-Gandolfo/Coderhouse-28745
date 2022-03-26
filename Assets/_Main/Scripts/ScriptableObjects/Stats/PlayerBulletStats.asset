@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca81e4d5b14d0ff429f9b2a46fc74d5e, type: 3}
   m_Name: PlayerBulletStats
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8634145754387332423, guid: 7bdc491398e25eb44b6e1a55b5136c7e, type: 3}
-  _bulletVelocity: 50
+  _prefab: {fileID: 8634145754387332423, guid: 7bdc491398e25eb44b6e1a55b5136c7e, type: 3}
+  _velocity: 10
+  _damage: 1
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 256

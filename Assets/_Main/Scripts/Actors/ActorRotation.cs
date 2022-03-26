@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class ActorRotation : MonoBehaviour
+public abstract class ActorRotation : MonoBehaviour
 {
-    protected IActorStats _actorStats;
-    protected IActorController _actorController;
+    private IActorStats _actorStats;
 
     protected void LookAtDirection(Vector3 direction)
     {
@@ -14,10 +13,5 @@ public class ActorRotation : MonoBehaviour
     public void SetActorStats(IActorStats actorStats)
     {
         _actorStats = actorStats;
-    }
-
-    public void SetActorController(IActorController actorController)
-    {
-        _actorController = actorController;
     }
 }

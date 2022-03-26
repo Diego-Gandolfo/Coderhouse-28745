@@ -9,7 +9,6 @@ public class PlayerRotation : ActorRotation
     private void Start()
     {
         _mainCamera = Camera.main;
-        print(_mainCamera.farClipPlane);
     }
 
     private void Update()

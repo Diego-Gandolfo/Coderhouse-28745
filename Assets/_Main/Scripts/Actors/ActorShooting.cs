@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ActorShooting : MonoBehaviour
+public abstract class ActorShooting : MonoBehaviour
 {
     [SerializeField] private Transform _spawnpoint;
 
@@ -8,7 +8,7 @@ public class ActorShooting : MonoBehaviour
 
     protected void Shoot()
     {
-        var bullet = Instantiate(_bulletStats.BulletPrefab, _spawnpoint.position, transform.rotation);
+        var bullet = Instantiate(_bulletStats.Prefab, _spawnpoint.position, transform.rotation);
         bullet.SetBulletStats(_bulletStats);
     }
 

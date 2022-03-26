@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class ActorController : MonoBehaviour, IActorController
+public abstract class ActorController : MonoBehaviour, IActorController
 {
-    [SerializeField] protected ActorStats _actorStats;
+    [SerializeField] private ActorStats _actorStats;
 
-    protected Rigidbody _rigidbody;
-    protected ActorMovement _actorMovement;
-    protected ActorRotation _actorRotation;
+    private Rigidbody _rigidbody;
+    private ActorMovement _actorMovement;
+    private ActorRotation _actorRotation;
+    private ActorHealth _actorHealth;
 
     public Rigidbody Rigidbody => _rigidbody;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         InitializeComponents();
     }
@@ -20,11 +21,13 @@ public class ActorController : MonoBehaviour, IActorController
         _rigidbody = GetComponent<Rigidbody>();
 
         _actorMovement = GetComponent<ActorMovement>();
-        _actorMovement.SetActorController(this);
-        _actorMovement.SetActorStats(_actorStats);
+        _actorMovement?.SetActorController(this);
+        _actorMovement?.SetActorStats(_actorStats);
 
         _actorRotation = GetComponent<ActorRotation>();
-        _actorRotation.SetActorController(this);
-        _actorRotation.SetActorStats(_actorStats);
+        _actorRotation?.SetActorStats(_actorStats);
+
+        _actorHealth = GetComponent<ActorHealth>();
+        _actorHealth?.SetActorStats(_actorStats);
     }
 }

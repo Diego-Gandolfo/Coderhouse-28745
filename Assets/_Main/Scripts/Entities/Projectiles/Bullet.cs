@@ -22,12 +22,18 @@ public class Bullet : MonoBehaviour, IBullet
 
     private void OnCollisionEnter(Collision collision)
     {
+        if ((_bulletStats.TargetLayer & 1 << collision.gameObject.layer) != 0)
+        {
+            var actorHealth = collision.gameObject.GetComponent<ActorHealth>();
+            actorHealth.RecieveDamage(_bulletStats.Damage);
+        }
+
         Destroy(gameObject);
     }
 
     private void BulletMovement()
     {
-        _rigidbody.velocity = transform.forward * _bulletStats.BulletVelocity;
+        _rigidbody.velocity = transform.forward * _bulletStats.Velocity;
     }
 
     public void SetBulletStats(IBulletStats bulletStats)

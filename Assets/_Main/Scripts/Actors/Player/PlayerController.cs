@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerController : ActorController
 {
-    [SerializeField] protected BulletStats _bulletStats;
+    [SerializeField] private BulletStats _bulletStats;
 
     private ActorShooting _actorShooting;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         InitializeComponents();
     }
 

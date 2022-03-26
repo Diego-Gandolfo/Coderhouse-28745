@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c07b3e73027ca44aa52637ba68fa61f, type: 3}
-  m_Name: PlayerActorStats
+  m_Name: EnemyActorStats
   m_EditorClassIdentifier: 
   _movementVelocity: 10
   _rotationVelocity: 10
-  _maxHealth: 100
+  _maxHealth: 10

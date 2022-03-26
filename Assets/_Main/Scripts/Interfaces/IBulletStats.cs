@@ -2,6 +2,8 @@
 
 public interface IBulletStats
 {
-    Bullet BulletPrefab { get; }
-    float BulletVelocity { get; }
+    Bullet Prefab { get; }
+    float Velocity { get; }
+    float Damage { get; }
+    LayerMask TargetLayer { get; }
 }
