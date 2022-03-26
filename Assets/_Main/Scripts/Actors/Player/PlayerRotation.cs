@@ -2,31 +2,31 @@ using UnityEngine;
 
 public class PlayerRotation : ActorRotation
 {
+    [SerializeField] private LayerMask _raycastLayerMask;
+
     private Camera _mainCamera;
 
     private void Start()
     {
         _mainCamera = Camera.main;
+        print(_mainCamera.farClipPlane);
     }
 
     private void Update()
     {
-        var direction = GetDirection();
+        var direction = GetMouseDirection();
         LookAtDirection(direction);
     }
 
-    private Vector3 GetDirection()
+    private Vector3 GetMouseDirection()
     {
         var mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        var groundPosition = Vector3.zero;
+        var direction = Vector3.zero;
 
-        RaycastHit hit;
-        if (Physics.Raycast(mousePosition, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
+        if (Physics.Raycast(mousePosition, _mainCamera.transform.forward, out RaycastHit hit, _mainCamera.farClipPlane, _raycastLayerMask))
         {
-            groundPosition = hit.point;
+            direction = new Vector3(hit.point.x - transform.position.x, transform.position.y, hit.point.z - transform.position.z);
         }
-
-        var direction = new Vector3(groundPosition.x - transform.position.x, transform.position.y, groundPosition.z - transform.position.z);
 
         return direction;
     }

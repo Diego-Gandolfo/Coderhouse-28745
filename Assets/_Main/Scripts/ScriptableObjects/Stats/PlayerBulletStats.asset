@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c07b3e73027ca44aa52637ba68fa61f, type: 3}
-  m_Name: PlayerStats
+  m_Script: {fileID: 11500000, guid: ca81e4d5b14d0ff429f9b2a46fc74d5e, type: 3}
+  m_Name: PlayerBulletStats
   m_EditorClassIdentifier: 
-  _movementVelocity: 10
-  _rotationVelocity: 10
+  _bulletPrefab: {fileID: 8634145754387332423, guid: 7bdc491398e25eb44b6e1a55b5136c7e, type: 3}
+  _bulletVelocity: 50

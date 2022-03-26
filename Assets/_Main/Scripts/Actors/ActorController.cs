@@ -10,7 +10,7 @@ public class ActorController : MonoBehaviour, IActorController
 
     public Rigidbody Rigidbody => _rigidbody;
 
-    private void Start()
+    protected virtual void Start()
     {
         InitializeComponents();
     }
