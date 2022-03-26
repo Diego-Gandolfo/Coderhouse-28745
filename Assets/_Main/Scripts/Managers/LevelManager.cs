@@ -6,9 +6,9 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
-    [SerializeField] private MovementController _player;
+    [SerializeField] private PlayerMovement _player;
 
-    public MovementController Player => _player;
+    public PlayerMovement Player => _player;
 
     private void Awake()
     {

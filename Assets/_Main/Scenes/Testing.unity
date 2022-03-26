@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 731543187}
   - component: {fileID: 731543186}
   - component: {fileID: 731543185}
-  - component: {fileID: 731543184}
   - component: {fileID: 731543188}
   m_Layer: 0
   m_Name: Main Camera
@@ -187,18 +186,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &731543184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731543183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b6e6bc1698c40d43a9c8c71fa8354a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!81 &731543185
 AudioListener:
   m_ObjectHideFlags: 0
@@ -310,7 +297,7 @@ GameObject:
   - component: {fileID: 1105882329}
   - component: {fileID: 1105882328}
   - component: {fileID: 1105882327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,6 +638,7 @@ GameObject:
   - component: {fileID: 1767621740}
   - component: {fileID: 1767621743}
   - component: {fileID: 1767621742}
+  - component: {fileID: 1767621745}
   - component: {fileID: 1767621741}
   - component: {fileID: 1767621744}
   m_Layer: 0
@@ -688,7 +676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903faa236fe40c6448b61f38568d41ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementVelocity: 10
 --- !u!54 &1767621742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -730,7 +717,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de94c08d2c04679409f45ddd04d5179c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationVelocity: 7.5
+--- !u!114 &1767621745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767621739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0a7f6e639126b4980f0f8c340b3279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actorStats: {fileID: 11400000, guid: b1e1802b49d05064889a8df5a7a27a26, type: 2}
 --- !u!1 &1877757105
 GameObject:
   m_ObjectHideFlags: 0
