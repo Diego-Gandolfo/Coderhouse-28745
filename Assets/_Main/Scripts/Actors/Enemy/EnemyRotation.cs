@@ -1,20 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyRotation : ActorRotation
 {
     private IConeOfSight _coneOfSight;
-    private PlayerController _playerController;
-
-    private void Start()
-    {
-        _playerController = LevelManager.Instance.Player;
-    }
+    private IEnemyController _enemyController;
 
     private void LookAtPlayer()
     {
-        var direction = (_playerController.transform.position - transform.position).normalized;
+        var direction = (_enemyController.Player.transform.position - transform.position).normalized;
         LookAtDirection(direction);
     }
 
@@ -22,5 +15,10 @@ public class EnemyRotation : ActorRotation
     {
         _coneOfSight = coneOfSight;
         _coneOfSight.OnSight += LookAtPlayer;
+    }
+
+    public void SetActorController(IEnemyController enemyController)
+    {
+        _enemyController = enemyController;
     }
 }

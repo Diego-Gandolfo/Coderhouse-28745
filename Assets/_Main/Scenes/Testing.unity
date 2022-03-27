@@ -864,10 +864,11 @@ GameObject:
   - component: {fileID: 1643824446}
   - component: {fileID: 1643824443}
   - component: {fileID: 1643824447}
-  - component: {fileID: 1643824445}
   - component: {fileID: 1643824444}
+  - component: {fileID: 1643824445}
   - component: {fileID: 1643824448}
   - component: {fileID: 1643824449}
+  - component: {fileID: 1643824450}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -913,6 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actorStats: {fileID: 11400000, guid: 64ed63a8256a8034a947d7d6c693aa78, type: 2}
+  _bulletStats: {fileID: 11400000, guid: 9dcd38bc59870a144a0291ca6bce801d, type: 2}
   _coneOfSight: {fileID: 1055106757}
 --- !u!4 &1643824446
 Transform:
@@ -927,6 +929,7 @@ Transform:
   m_Children:
   - {fileID: 221153516}
   - {fileID: 1055106754}
+  - {fileID: 1862139870}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -958,6 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278dc7aa361cebd4c9bfca3d6d79b19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stopDistance: 5
 --- !u!114 &1643824449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,6 +974,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa08e8772375794bb8050815ac9677c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1643824450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643824442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b99ccd97ead8c8418f2269987e56ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnpoint: {fileID: 1862139870}
+  _cooldown: 0.5
+  _range: 25
+--- !u!1 &1862139869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1862139870}
+  - component: {fileID: 1862139871}
+  m_Layer: 8
+  m_Name: Crosshair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1862139870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862139869}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_Children: []
+  m_Father: {fileID: 1643824446}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!212 &1862139871
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862139869}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.39215687}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1971169636
 GameObject:
   m_ObjectHideFlags: 0

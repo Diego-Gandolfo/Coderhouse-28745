@@ -1,27 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : ActorMovement
 {
+    [SerializeField] private float _stopDistance;
+
     private IConeOfSight _coneOfSight;
-
-    private PlayerController _playerController;
-
-    private void Start()
-    {
-        _playerController = LevelManager.Instance.Player;
-    }
+    private IEnemyController _enemyController;
 
     private void MoveToPlayer()
     {
-        var direction = (_playerController.transform.position - transform.position).normalized;
-        Movement(direction);
+        if (CheckDistance())
+        {
+            var direction = (_enemyController.Player.transform.position - transform.position).normalized;
+            Movement(direction);
+        }
+    }
+
+    private bool CheckDistance()
+    {
+        var distance = (_enemyController.Player.transform.position - transform.position).magnitude;
+        print(distance);
+        return (distance > _stopDistance);
     }
 
     public void SetConeOfSight(IConeOfSight coneOfSight)
     {
         _coneOfSight = coneOfSight;
         _coneOfSight.OnSight += MoveToPlayer;
+    }
+
+    public void SetActorController(IEnemyController enemyController)
+    {
+        _enemyController = enemyController;
     }
 }

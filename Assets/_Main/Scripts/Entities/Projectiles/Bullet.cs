@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour, IBullet
         if ((_bulletStats.TargetLayer & 1 << collision.gameObject.layer) != 0)
         {
             var actorHealth = collision.gameObject.GetComponent<ActorHealth>();
-            actorHealth.RecieveDamage(_bulletStats.Damage);
+            actorHealth?.RecieveDamage(_bulletStats.Damage);
         }
 
         Destroy(gameObject);
