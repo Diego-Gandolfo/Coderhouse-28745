@@ -10,6 +10,8 @@ public abstract class ActorController : MonoBehaviour, IActorController
     private ActorHealth _actorHealth;
 
     public Rigidbody Rigidbody => _rigidbody;
+    public ActorMovement ActorMovement => _actorMovement;
+    public ActorRotation ActorRotation => _actorRotation;
 
     protected virtual void Awake()
     {
