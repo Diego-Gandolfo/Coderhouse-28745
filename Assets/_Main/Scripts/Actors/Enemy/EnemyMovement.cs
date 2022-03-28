@@ -19,7 +19,6 @@ public class EnemyMovement : ActorMovement
     private bool CheckDistance()
     {
         var distance = (_enemyController.Player.transform.position - transform.position).magnitude;
-        print(distance);
         return (distance > _stopDistance);
     }
 
